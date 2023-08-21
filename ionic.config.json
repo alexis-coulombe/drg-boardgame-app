@@ -1,0 +1,7 @@
+{
+  "name": "DRG BoardGame",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
