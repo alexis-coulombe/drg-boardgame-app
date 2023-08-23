@@ -2,11 +2,12 @@ import {Dwarf} from "./dwarf.model";
 
 export class Deepdive {
   constructor(
-    public mission: number,
-    public driller: Dwarf | undefined,
-    public engineer: Dwarf | undefined,
-    public gunner: Dwarf | undefined,
-    public scout: Dwarf | undefined
+    public mission: number = 1,
+    public lastSave: string = '',
+    public driller: Dwarf | undefined = undefined,
+    public engineer: Dwarf | undefined = undefined,
+    public gunner: Dwarf | undefined = undefined,
+    public scout: Dwarf | undefined = undefined
   ) {
 
   }

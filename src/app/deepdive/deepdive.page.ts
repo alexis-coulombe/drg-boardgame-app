@@ -16,8 +16,25 @@ export class DeepdivePage implements OnInit {
   // @ts-ignore
   @ViewChild(IonModal) modal: IonModal;
 
-  selectedDwarf: Dwarf = new Dwarf('', '', 0, 0, 0, [], undefined);
-  deepdive: Deepdive = new Deepdive(1, undefined, undefined, undefined, undefined);
+  selectedDwarf: Dwarf = new Dwarf();
+  deepdive: Deepdive = new Deepdive();
+
+  resetAllButton = [
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        return;
+      },
+    },
+    {
+      text: 'Yes',
+      role: 'confirm',
+      handler: () => {
+        this.resetAll();
+      },
+    },
+  ];
 
   constructor(protected dwarfService: DwarfService, protected cardService: CardService) {
     this.loadData();
@@ -56,6 +73,7 @@ export class DeepdivePage implements OnInit {
     }
 
     this.modal.present();
+
   }
 
   saveData() {
@@ -76,6 +94,8 @@ export class DeepdivePage implements OnInit {
         break;
     }
 
+    this.deepdive.lastSave = new Date().toLocaleString();
+
     localStorage.setItem('deepdive', JSON.stringify(this.deepdive));
   }
 
@@ -85,30 +105,10 @@ export class DeepdivePage implements OnInit {
     this.deepdive = JSON.parse(localStorage.getItem('deepdive') || JSON.stringify(this.deepdive));
   }
 
-  updateSecondaryOverclock(event: any) {
-    if (this.selectedDwarf.secondaryWeapon === undefined) return;
+  updateHealth(health: number) {
+    if (this.selectedDwarf === undefined) return;
 
-    this.selectedDwarf.secondaryWeapon.overclocked = event.detail.checked;
-  }
-
-  addSecondaryWeaponModifier1(event: any) {
-    if (this.selectedDwarf.secondaryWeapon === undefined) return;
-
-    let foundModifier = this.cardService.getWeaponModifiers().find(m => m.name === event.target.value);
-
-    if (foundModifier === undefined) return;
-
-    this.selectedDwarf.secondaryWeapon.modifiers[0] = foundModifier;
-  }
-
-  addSecondaryWeaponModifier2(event: any) {
-    if (this.selectedDwarf.secondaryWeapon === undefined) return;
-
-    let foundModifier = this.cardService.getWeaponModifiers().find(m => m.name === event.target.value);
-
-    if (foundModifier === undefined) return;
-
-    this.selectedDwarf.secondaryWeapon.modifiers[1] = foundModifier;
+    this.selectedDwarf.health = health;
   }
 
   increaseMission(){
@@ -120,4 +120,6 @@ export class DeepdivePage implements OnInit {
     this.deepdive = new Deepdive(1, undefined, undefined, undefined, undefined);
     localStorage.removeItem('deepdive');
   }
+
+  protected readonly Array = Array;
 }

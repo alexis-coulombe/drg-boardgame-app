@@ -9,15 +9,15 @@ import {WeaponModifier} from "../model/weapon-modifier.model";
 export class CardService {
 
   private weapons: Weapon[] = [
-    new Weapon('Bulldog heavy revolver', false, []),
-    new Weapon('"Warthog" auto 210 shotgun', false, []),
-    new Weapon('Experimental plasma igniter', false, []),
-    new Weapon('Subata 120 semi-automatic', false, []),
-    new Weapon('Zhukov nuk17 twin smgs', false, []),
-    new Weapon('Stubby voltaic smg', false, []),
-    new Weapon('Experimental plasma charger', false, []),
-    new Weapon('Jury-rigged boomstick', false, []),
-    new Weapon('Brt7 burst fire gun', false, [])
+    new Weapon('Bulldog heavy revolver'),
+    new Weapon('"Warthog" auto 210 shotgun' ),
+    new Weapon('Experimental plasma igniter'),
+    new Weapon('Subata 120 semi-automatic'),
+    new Weapon('Zhukov nuk17 twin smgs'),
+    new Weapon('Stubby voltaic smg'),
+    new Weapon('Experimental plasma charger'),
+    new Weapon('Jury-rigged boomstick'),
+    new Weapon('Brt7 burst fire gun')
   ];
 
   private throwables: Throwable[] = [
