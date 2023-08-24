@@ -3,9 +3,8 @@ import {IonModal} from "@ionic/angular";
 import {Dwarf} from "../model/dwarf.model";
 import {DwarfService} from "../service/dwarf.service";
 import {CardService} from "../service/card.service";
-import {Weapon} from "../model/weapon.model";
 import {Deepdive} from "../model/deepdive.model";
-import {WeaponModifier} from "../model/weapon-modifier.model";
+import {AdMob, AdOptions, BannerAdOptions, BannerAdPosition, BannerAdSize} from "@capacitor-community/admob";
 
 @Component({
   selector: 'app-deepdive',
@@ -18,7 +17,6 @@ export class DeepdivePage implements OnInit {
 
   selectedDwarf: Dwarf = new Dwarf();
   deepdive: Deepdive = new Deepdive();
-
   resetAllButton = [
     {
       text: 'Cancel',
@@ -38,9 +36,28 @@ export class DeepdivePage implements OnInit {
 
   constructor(protected dwarfService: DwarfService, protected cardService: CardService) {
     this.loadData();
+    this.showBannerAd();
   }
 
   ngOnInit() {
+
+  }
+
+  async showBannerAd() {
+    AdMob.initialize({
+      requestTrackingAuthorization: false,
+      initializeForTesting: false,
+    })
+
+    const options: BannerAdOptions = {
+      adId: 'ca-app-pub-4650782712352720/6342753007',
+      adSize: BannerAdSize.ADAPTIVE_BANNER,
+      position: BannerAdPosition.BOTTOM_CENTER,
+      margin: 0,
+      isTesting: false,
+    };
+
+    await AdMob.showBanner(options);
   }
 
   onWillDismiss(event: any) {
@@ -79,7 +96,23 @@ export class DeepdivePage implements OnInit {
   saveData() {
     if (this.selectedDwarf === undefined) return;
 
-    switch(this.selectedDwarf.name) {
+    if (this.selectedDwarf.primaryAmmo > 5) {
+      this.selectedDwarf.primaryAmmo = 5;
+    }
+
+    if (this.selectedDwarf.secondaryAmmo > 5) {
+      this.selectedDwarf.secondaryAmmo = 5;
+    }
+
+    if (this.selectedDwarf.primaryAmmo < 0) {
+      this.selectedDwarf.primaryAmmo = 0;
+    }
+
+    if (this.selectedDwarf.secondaryAmmo < 0) {
+      this.selectedDwarf.secondaryAmmo = 0;
+    }
+
+    switch (this.selectedDwarf.name) {
       case 'Driller':
         this.deepdive.driller = this.selectedDwarf;
         break;
@@ -100,7 +133,7 @@ export class DeepdivePage implements OnInit {
   }
 
   loadData() {
-    if(localStorage.getItem('deepdive') === null) return;
+    if (localStorage.getItem('deepdive') === null) return;
 
     this.deepdive = JSON.parse(localStorage.getItem('deepdive') || JSON.stringify(this.deepdive));
   }
@@ -111,7 +144,7 @@ export class DeepdivePage implements OnInit {
     this.selectedDwarf.health = health;
   }
 
-  increaseMission(){
+  increaseMission() {
     this.deepdive.mission = this.deepdive.mission + 1;
     this.saveData();
   }
@@ -119,6 +152,15 @@ export class DeepdivePage implements OnInit {
   resetAll() {
     this.deepdive = new Deepdive(1, undefined, undefined, undefined, undefined);
     localStorage.removeItem('deepdive');
+  }
+
+  OnAmmoChange(event: any) {
+    if (this.selectedDwarf === undefined) return;
+
+    // cap ammo to 5 max
+    if (event.target.value > 5) {
+      event.target.value = 5;
+    }
   }
 
   protected readonly Array = Array;
