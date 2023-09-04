@@ -69,7 +69,7 @@
                     <ion-item>
                       <ion-select name="weapon" label="Secondary weapon" label-placement="floating" [(ngModel)]="selectedDwarf.secondaryWeapon">
                         <ion-select-option [value]="">None</ion-select-option>
-                        <ion-select-option *ngFor="let weapon of cardService.getWeapons()">{{ weapon.name }}</ion-select-option>
+                        <ion-select-option *ngFor="let weapon of cardService.getSecondaries()">{{ weapon.name }}</ion-select-option>
                       </ion-select>
                     </ion-item>
                   </ion-list>
@@ -146,7 +146,7 @@
       ></ion-alert>
     </div>
 
-    <div class="py-2">
+    <div class="py-2" *ngIf="deepdive.lastSave !== ''">
       <ion-note>Last save: {{ deepdive.lastSave }}</ion-note>
     </div>
   </div>

@@ -9,6 +9,7 @@ export class Dwarf {
     public primaryAmmo: number = 0,
     public secondaryAmmo: number = 0,
     public throwables: string[] = [],
+    public primaryWeapon: string = '',
     public secondaryWeapon: string = '',
     public secondaryWeaponOverclocked: boolean = false,
     public secondaryMod1: string = '',

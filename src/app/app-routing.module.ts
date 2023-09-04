@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'deepdive',
     loadChildren: () => import('./deepdive/deepdive.module').then( m => m.DeepdivePageModule)
+  },
+  {
+    path: 'dwarf-randomizer',
+    loadChildren: () => import('./dwarf-randomizer/dwarf-randomizer.module').then( m => m.DwarfRandomizerPageModule)
   }
 ];
 

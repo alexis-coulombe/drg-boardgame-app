@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Deep dive tracker', url: '/deepdive', image: 'assets/icon/deepdive.png' },
+    { title: 'Deep dive tracker', subtitle: '', url: '/deepdive', image: 'assets/icon/deepdive.png' },
+    { title: 'Dwarf randomizer', subtitle: '', url: '/dwarf-randomizer', image: 'assets/icon/randomizer.png' },
+    { title: 'Mission generator', subtitle: 'Work in progress', url: '#', image: 'assets/icon/mission_control.png' },
   ];
   constructor() {}
 

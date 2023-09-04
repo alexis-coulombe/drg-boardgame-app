@@ -1,0 +1,58 @@
+<ion-header [translucent]="false">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Dwarf randomizer</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="p-5">
+    <ion-note>If you're playing solo, start a game with a randomly generated dwarf!</ion-note>
+
+    <div class="flex justify-center mt-4">
+      <ion-button (click)="generateDwarf()">Create your dwarf</ion-button>
+    </div>
+
+    <div class="mt-5 flex flex-col" *ngIf="randomDwarf !== undefined">
+      <div *ngFor="let dwarf of dwarfService.getDeepdiveDwarves()">
+        <div expand="block"
+             [ngStyle]="{background: 'url(' + dwarf.bannerImage + ')', 'background-size': 'cover'}"
+             class="w-full h-[100px]" *ngIf="randomDwarf?.name === dwarf.name">
+          <div class="flex justify-center items-center h-full">
+            <div class="w-2/3"></div>
+            <div class="w-1/3 uppercase font-bold text-white">{{ dwarf.name }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col">
+        <ion-item>
+          <ion-input label="Primary weapon:" [value]="randomDwarf?.primaryWeapon" readonly="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Secondary weapon:" [value]="randomDwarf?.secondaryWeapon" readonly="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Throwable:" [value]="randomDwarf?.throwables?.slice(0, 1)" readonly="true"></ion-input>
+        </ion-item>
+      </div>
+      <ion-chip color="warning" class="justify-center">
+        Harder settings <ion-icon name="arrow-down-outline"></ion-icon>
+      </ion-chip>
+      <div class="flex flex-col">
+        <ion-item>
+          <ion-input label="Starting health:" [value]="randomDwarf?.health" readonly="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="BOSCO help:" [value]="boscoEnabled ? 'No' : 'Yes'" readonly="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Start game with wave:" [value]="startWithWave ? 'No' : 'Yes'" readonly="true"></ion-input>
+        </ion-item>
+      </div>
+    </div>
+  </div>
+</ion-content>
