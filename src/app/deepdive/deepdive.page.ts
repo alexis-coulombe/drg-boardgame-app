@@ -57,7 +57,7 @@ export class DeepdivePage implements OnInit {
       isTesting: false,
     };
 
-    await AdMob.showBanner(options);
+    //await AdMob.showBanner(options);
   }
 
   onWillDismiss(event: any) {

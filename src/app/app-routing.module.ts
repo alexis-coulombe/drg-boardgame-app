@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'dwarf-randomizer',
     loadChildren: () => import('./dwarf-randomizer/dwarf-randomizer.module').then( m => m.DwarfRandomizerPageModule)
+  },
+  {
+    path: 'monster-sheet',
+    loadChildren: () => import('./monster-sheet/monster-sheet.module').then( m => m.MonsterSheetPageModule)
   }
 ];
 

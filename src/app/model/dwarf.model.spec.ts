@@ -1,6 +1,6 @@
 import { Dwarf } from './dwarf.model';
 
-describe('Miner', () => {
+describe('Dwarf', () => {
   it('should create an instance', () => {
     expect(new Dwarf()).toBeTruthy();
   });
