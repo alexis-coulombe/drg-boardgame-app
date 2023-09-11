@@ -7,9 +7,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public appPages = [
     { title: 'Deep dive tracker', subtitle: '', url: '/deepdive', image: 'assets/icon/deepdive.png' },
-    { title: 'Dwarf randomizer', subtitle: '', url: '/dwarf-randomizer', image: 'assets/icon/randomizer.png' },
+    { title: 'Dwarf randomizer', subtitle: '', url: '/dwarf-randomizer', image: 'assets/icon/sabotage.png' },
+    { title: 'Monster sheets', subtitle: '', url: '/monster-sheet', image: 'assets/icon/egg.png' },
     { title: 'Mission generator', subtitle: 'Work in progress', url: '#', image: 'assets/icon/mission_control.png' },
-    { title: 'Monster sheets', subtitle: '', url: '/monster-sheet', image: 'assets/icon/monster_sheet.png' },
+    { title: 'Community mods', subtitle: 'Work in progress', url: '#', image: 'assets/icon/escort.png' },
   ];
 
   protected readonly window = window;
