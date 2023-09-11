@@ -1,7 +1,7 @@
 import {AfterViewChecked, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {DwarfService} from "../service/dwarf.service";
-import {Dwarf} from "../model/dwarf.model";
-import {CardService} from "../service/card.service";
+import {DwarfService} from "../../service/dwarf.service";
+import {Dwarf} from "../../model/dwarf.model";
+import {CardService} from "../../service/card.service";
 
 @Component({
   selector: 'app-dwarf-randomizer',

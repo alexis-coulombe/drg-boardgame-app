@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MonsterService} from "../service/monster.service";
+import {MonsterService} from "../../service/monster.service";
 
 @Component({
   selector: 'app-monster-sheet',

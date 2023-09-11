@@ -9,15 +9,23 @@ const routes: Routes = [
   },
   {
     path: 'deepdive',
-    loadChildren: () => import('./deepdive/deepdive.module').then( m => m.DeepdivePageModule)
+    loadChildren: () => import('./pages/deepdive/deepdive.module').then(m => m.DeepdivePageModule)
   },
   {
     path: 'dwarf-randomizer',
-    loadChildren: () => import('./dwarf-randomizer/dwarf-randomizer.module').then( m => m.DwarfRandomizerPageModule)
+    loadChildren: () => import('./pages/dwarf-randomizer/dwarf-randomizer.module').then(m => m.DwarfRandomizerPageModule)
   },
   {
     path: 'monster-sheet',
-    loadChildren: () => import('./monster-sheet/monster-sheet.module').then( m => m.MonsterSheetPageModule)
+    loadChildren: () => import('./pages/monster-sheet/monster-sheet.module').then(m => m.MonsterSheetPageModule)
+  },
+  {
+    path: 'community-mods',
+    loadChildren: () => import('./pages/community-mods/community-mods.module').then(m => m.CommunityModsPageModule)
+  },
+  {
+    path: 'mods/abyss-bar-module',
+    loadChildren: () => import('./pages/mods/abyss-bar-module/abyss-bar-module.module').then(m => m.AbyssBarModulePageModule)
   }
 ];
 

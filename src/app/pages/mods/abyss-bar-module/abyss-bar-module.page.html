@@ -1,0 +1,39 @@
+<ion-header [translucent]="false">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Abyss bar module</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="p-5 text-justify">
+    <p>
+      After choosing a mission but before deploying, the group decides whether or not to order a
+      round. If they do, the drink effect applies to all dwarves for the entire mission. Beer effects do not apply
+      to Bosco, he can't drink!
+    </p>
+    <br>
+    <p>
+      If a beer was chosen, move the hazard marker up one space before the mission begins. Additionally,
+      do no draw a rock and stone card when picking up a barley bulb token. The Abyss bar needs those to restock
+      all the beer you just drank!
+    </p>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let drink of drinks">
+      <ion-thumbnail class="mr-2">
+        <img alt="{{ drink.name }}" src="{{ drink.image }}" />
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap">
+        <h2>{{ drink.name }}</h2>
+        <p>
+          {{ drink.description }}
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
