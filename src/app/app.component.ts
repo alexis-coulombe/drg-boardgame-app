@@ -11,7 +11,6 @@ export class AppComponent {
     { title: 'Mission generator', subtitle: 'Work in progress', url: '#', image: 'assets/icon/mission_control.png' },
     { title: 'Monster sheets', subtitle: '', url: '/monster-sheet', image: 'assets/icon/monster_sheet.png' },
   ];
-  constructor() {}
 
   protected readonly window = window;
 }

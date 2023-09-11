@@ -1,10 +1,4 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {IonModal} from "@ionic/angular";
-import {Dwarf} from "../model/dwarf.model";
-import {DwarfService} from "../service/dwarf.service";
-import {CardService} from "../service/card.service";
-import {Deepdive} from "../model/deepdive.model";
-import {AdMob, AdOptions, BannerAdOptions, BannerAdPosition, BannerAdSize} from "@capacitor-community/admob";
 import {MonsterService} from "../service/monster.service";
 
 @Component({
