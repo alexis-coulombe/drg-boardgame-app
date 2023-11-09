@@ -10,7 +10,7 @@ export class AppComponent {
     { title: 'Dwarf randomizer', subtitle: '', url: '/dwarf-randomizer', image: 'assets/icon/sabotage.png' },
     { title: 'Monster sheets', subtitle: '', url: '/monster-sheet', image: 'assets/icon/egg.png' },
     { title: 'Community mods', subtitle: '', url: '/community-mods', image: 'assets/icon/escort.png' },
-    { title: 'Mission generator', subtitle: 'Work in progress', url: '#', image: 'assets/icon/mission_control.png' },
+    { title: 'Mission generator', subtitle: '', url: 'https://play.google.com/store/apps/details?id=com.sirsamson.drgmissionterminal', image: 'assets/icon/mission_control.png' },
   ];
 
   protected readonly window = window;
