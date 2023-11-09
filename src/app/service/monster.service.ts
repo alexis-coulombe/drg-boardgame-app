@@ -73,12 +73,14 @@ export class MonsterService {
   ];
 
   public gooFromAbove: Monster[] = [
-    new Monster('Goo Bomber', 'assets/icon/goo_bomber.png', 2, 3, 3, '', '', false,
+    new Monster('Goo Bomber', 'assets/icon/goo_bomber.png', 2, 3, 3,
+      'assets/images/monsters/goo_bomber_resistance.png', 'assets/images/monsters/goo_bomber_attack.png', false,
       'The goo bomber will fly towards the nearest Dwarf. When it attacks, it not only hurts its target, \n' +
       'but also surrounds it with sticky goo: Regardless of the dice result, place goo tokens on all vacant spaces \n' +
       ' (not tunnel exits or pits) surrounding the target. Take goo tokens from elsewhere if you did not have enough to place. \n' +
       ' Any non-flying creature or Dwarf walking onto a tile with goo must remove the goo it stepped on, and then end the move action immediately.'),
-    new Monster('Menace', 'assets/icon/menace.png', 5, 3, 6, '', '', false,
+    new Monster('Menace', 'assets/icon/menace.png', 5, 3, 6,
+      'assets/images/monsters/menace_resistance.png', 'assets/images/monsters/menace_attack.png', false,
       'The glyphid menace will attack with a dangerous acid spit. \n' +
       'When the glyphid menace takes any damage (losing health) from an attack, it hides for a short while, \n' +
       ' meaning it cannot be attacked again by any means in that Dwarf\'s turn. It will resurface at the end of that Dwarf\'s turn. \n' +
