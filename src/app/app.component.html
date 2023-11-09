@@ -8,7 +8,7 @@
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <img src="{{ p.image }}" class="w-8 mx-2">
+              <img src="{{ p.image }}" class="w-8 mx-2" alt="{{ p.title }}">
 
               <ion-label>
                 <h2>{{ p.title }}</h2>
@@ -18,11 +18,19 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
+            <ion-item (click)="window.open('https://play.google.com/store/apps/details?id=com.sirsamson.drgmissionterminal', '_system')">
+              <img src="assets/icon/mission_control.png" class="w-8 mx-2" alt="Mission Generator">
+              <ion-label>Mission Generator</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
             <ion-item (click)="window.open('https://www.youtube.com/watch?v=XP5sJnIgxvg', '_system')">
               <ion-icon name="radio-outline" class="w-8 mx-2"></ion-icon>
               <ion-label>Soundtrack</ion-label>
             </ion-item>
           </ion-menu-toggle>
+
         </ion-list>
       </ion-content>
     </ion-menu>
