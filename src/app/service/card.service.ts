@@ -9,6 +9,7 @@ import {WeaponModifier} from "../model/weapon-modifier.model";
 export class CardService {
 
   private primaries: Weapon[] = [
+    new Weapon('Default'),
     new Weapon('Cryo cannon'),
     new Weapon('Breach cutter'),
     new Weapon('"Thunderhead" heavy AC'),
@@ -60,6 +61,10 @@ export class CardService {
   ];
 
   constructor() {
+  }
+
+  public getPrimaries(): Weapon[] {
+    return this.primaries;
   }
 
   public getSecondaries(): Weapon[] {

@@ -28,7 +28,7 @@ export class DwarfRandomizerPage implements OnInit, AfterViewChecked {
 
   generateDwarf() {
     const dwarfNo: number = Math.floor(Math.random() * this.dwarfService.getDwarves().length);
-    const primaryNo: number = Math.floor(Math.random() * 10);
+    const primaryNo: number = Math.floor(Math.random() * this.cardService.getPrimaries().length)
     const secondaryNo: number = Math.floor(Math.random() * this.cardService.getSecondaries().length);
     const throwableNo: number = Math.floor(Math.random() * this.cardService.getThrowables().length);
     const startHealth: number = Math.floor(Math.random() * 5) + 1;
@@ -39,13 +39,6 @@ export class DwarfRandomizerPage implements OnInit, AfterViewChecked {
     this.dwarfService.getDwarves().forEach((dwarf, index) => {
       if (index === dwarfNo) {
         this.randomDwarf = dwarf;
-
-        if (primaryNo % 2 === 0) {
-          this.randomDwarf.primaryWeapon = dwarf.primaryWeapon;
-        } else {
-          this.randomDwarf.primaryWeapon = 'Don\'t change';
-        }
-
         this.randomDwarf.health = startHealth;
 
         return;
@@ -57,6 +50,7 @@ export class DwarfRandomizerPage implements OnInit, AfterViewChecked {
     }
 
     this.randomDwarf.throwables = [this.cardService.getThrowables()[throwableNo].name];
+    this.randomDwarf.primaryWeapon = this.cardService.getPrimaries()[primaryNo].name;
     this.randomDwarf.secondaryWeapon = this.cardService.getSecondaries()[secondaryNo].name;
   }
 }

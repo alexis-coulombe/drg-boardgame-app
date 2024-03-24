@@ -61,13 +61,48 @@
               <div class="mb-3">
                 <div class="md:w-1/3">
                   <label class="block text-gray-500 font-bold mb-1 md:mb-0 pr-4">
+                    Primary weapon
+                  </label>
+                </div>
+                <div class="w-full py-5">
+                  <ion-list>
+                    <ion-item>
+                      <ion-select name="primary_weapon" label="Primary weapon" label-placement="floating" [(ngModel)]="selectedDwarf.primaryWeapon">
+                        <ion-select-option [value]="">Default</ion-select-option>
+                        <ion-select-option *ngFor="let weapon of cardService.getPrimaries()">{{ weapon.name }}</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-list>
+                  <ion-checkbox labelPlacement="end" class="py-2 px-1" [checked]="selectedDwarf.primaryWeaponOverclocked" (ionChange)="selectedDwarf.primaryWeaponOverclocked = !selectedDwarf.primaryWeaponOverclocked">Overclocked</ion-checkbox>
+                </div>
+                <div class="flex space-x-3 justify-center w-full">
+                  <ion-list class="w-full">
+                    <ion-item>
+                      <ion-select name="primary_modifier1" label="Mod slot" label-placement="floating" [(ngModel)]="selectedDwarf.primaryMod1">
+                        <ion-select-option [value]="">None</ion-select-option>
+                        <ion-select-option *ngFor="let modifier of cardService.getWeaponModifiers()">{{ modifier.name }}</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-list>
+                  <ion-list class="w-full">
+                    <ion-item>
+                      <ion-select name="primary_modifier2" label="Mod slot" label-placement="floating" [(ngModel)]="selectedDwarf.primaryMod2">
+                        <ion-select-option [value]="">None</ion-select-option>
+                        <ion-select-option *ngFor="let modifier of cardService.getWeaponModifiers()">{{ modifier.name }}</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-list>
+                </div>
+
+                <div class="md:w-1/3 mt-5">
+                  <label class="block text-gray-500 font-bold mb-1 md:mb-0 pr-4">
                     Secondary weapon
                   </label>
                 </div>
                 <div class="w-full py-5">
                   <ion-list>
                     <ion-item>
-                      <ion-select name="weapon" label="Secondary weapon" label-placement="floating" [(ngModel)]="selectedDwarf.secondaryWeapon">
+                      <ion-select name="seconday_weapon" label="Secondary weapon" label-placement="floating" [(ngModel)]="selectedDwarf.secondaryWeapon">
                         <ion-select-option [value]="">None</ion-select-option>
                         <ion-select-option *ngFor="let weapon of cardService.getSecondaries()">{{ weapon.name }}</ion-select-option>
                       </ion-select>
@@ -78,7 +113,7 @@
                 <div class="flex space-x-3 justify-center w-full">
                   <ion-list class="w-full">
                     <ion-item>
-                      <ion-select name="modifier1" label="Mod slot" label-placement="floating" [(ngModel)]="selectedDwarf.secondaryMod1">
+                      <ion-select name="secondary_modifier1" label="Mod slot" label-placement="floating" [(ngModel)]="selectedDwarf.secondaryMod1">
                         <ion-select-option [value]="">None</ion-select-option>
                         <ion-select-option *ngFor="let modifier of cardService.getWeaponModifiers()">{{ modifier.name }}</ion-select-option>
                       </ion-select>
@@ -86,7 +121,7 @@
                   </ion-list>
                   <ion-list class="w-full">
                     <ion-item>
-                      <ion-select name="modifier2" label="Mod slot" label-placement="floating" [(ngModel)]="selectedDwarf.secondaryMod2">
+                      <ion-select name="secondary_modifier2" label="Mod slot" label-placement="floating" [(ngModel)]="selectedDwarf.secondaryMod2">
                         <ion-select-option [value]="">None</ion-select-option>
                         <ion-select-option *ngFor="let modifier of cardService.getWeaponModifiers()">{{ modifier.name }}</ion-select-option>
                       </ion-select>
@@ -116,13 +151,13 @@
               <div class="mb-6 mt-5">
                 <div class="w-full">
                   <label class="block text-gray-500 font-bold mb-1 md:mb-0 pr-4">
-                    Throwable
+                    Throwables
                   </label>
                 </div>
                 <div class="w-full py-5">
                   <ion-list>
                     <ion-item>
-                      <ion-select name="throwable" label="Throwable" label-placement="floating" multiple="true" [(ngModel)]="selectedDwarf.throwables">
+                      <ion-select name="throwables" label="Throwables" label-placement="floating" multiple="true" [(ngModel)]="selectedDwarf.throwables">
                         <ion-select-option>None</ion-select-option>
                         <ion-select-option *ngFor="let throwable of cardService.getThrowables()">{{ throwable.name }}</ion-select-option>
                       </ion-select>
