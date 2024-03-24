@@ -59,7 +59,7 @@ export class MonsterService {
       '(towards nearest Dwarf). When it is killed, the Dwarf dealing the killing' +
       'blow gets to draw a Rock and Stone card as a morale boost.\n\n' +
       'When the Paetorian moves, it always faces the direction it moves in (towards the nearest Dwarf)'),
-    new Monster('Oppressor', 'assets/icon/oppressor.png', 7, 4, 1,
+    new Monster('Oppressor', 'assets/icon/oppressor.png', 7, 3, 1,
       'assets/images/monsters/oppressor_resistance.png', 'assets/images/monsters/spitball_attack.png', true,
       'The monstrous Oppressor has thick front armor and the ability to' +
       'crash through rock (with no minerals) to get to its prey. Rock walls' +
@@ -71,6 +71,14 @@ export class MonsterService {
       'and Stone card as a morale boost. The Oppressor takes up two spaces' +
       'on the board - it can attack from either, and damage can be dealt to' +
       'either. Area effect weapons can deal its damage to both spaces'),
+    new Monster('Warden', 'assets/icon/warden.png', 2, 3, 3,
+      'assets/images/monsters/warden_resistance.png', 'assets/images/monsters/none.png', false,
+      'When the Gliphyd Warden actives, it moves towards the nearest creature. ' +
+      'If after its movement, the Warden is more then 3 spaces away from the nearest creature, ' +
+      'place 1 Grunt next to the Warden, on the adgacent empty space nearest to a Dwarf.\n\n' +
+      'The Warden has no attack, but generates a protective shield around creatures within 3 spaces of its location. ' +
+      'The shield cancels 2 damage per attack. When the Warden is killed during an attack, its protective ' +
+      'shield disintegrates, and the creatures it was protecting immediately lose the associated protection bonus.'),
   ];
 
   public gooFromAbove: Monster[] = [
