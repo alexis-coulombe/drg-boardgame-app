@@ -36,28 +36,10 @@ export class DeepdivePage implements OnInit {
 
   constructor(protected dwarfService: DwarfService, protected cardService: CardService) {
     this.loadData();
-    this.showBannerAd();
   }
 
   ngOnInit() {
 
-  }
-
-  async showBannerAd() {
-    AdMob.initialize({
-      requestTrackingAuthorization: false,
-      initializeForTesting: false,
-    })
-
-    const options: BannerAdOptions = {
-      adId: 'ca-app-pub-4650782712352720/6342753007',
-      adSize: BannerAdSize.ADAPTIVE_BANNER,
-      position: BannerAdPosition.BOTTOM_CENTER,
-      margin: 0,
-      isTesting: false,
-    };
-
-    //await AdMob.showBanner(options);
   }
 
   onWillDismiss(event: any) {

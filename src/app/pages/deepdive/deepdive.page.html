@@ -68,7 +68,6 @@
                   <ion-list>
                     <ion-item>
                       <ion-select name="primary_weapon" label="Primary weapon" label-placement="floating" [(ngModel)]="selectedDwarf.primaryWeapon">
-                        <ion-select-option [value]="">Default</ion-select-option>
                         <ion-select-option *ngFor="let weapon of cardService.getPrimaries()">{{ weapon.name }}</ion-select-option>
                       </ion-select>
                     </ion-item>
